@@ -7,4 +7,13 @@ $(function(){
 	$('#project_quick_jump_box').attr("data-placeholder", str).select2({ width: function() {
 		return ($('#project_quick_jump_box').width() + 32).toString() + 'px';
 	}});
+
+	if ($('#time_entry_form').length > 0) {
+		str = $('#project_id option:first').text();
+		$('#project_id').prepend('<option />'); // Don't overwrite first project name
+		$('#project_id option:first').text("").val("");
+		$('#project_id').attr("data-placeholder", str).select2({ width: function () {
+				return ($('#project_id').width() + 32).toString() + 'px';
+		}});
+	}
 });
