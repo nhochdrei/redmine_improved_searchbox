@@ -12,8 +12,16 @@ $(function(){
 		str = $('#project_id option:first').text();
 		$('#project_id').prepend('<option />'); // Don't overwrite first project name
 		$('#project_id option:first').text("").val("");
-		$('#project_id').attr("data-placeholder", str).select2({ width: function () {
+		$('#project_id').attr("data-placeholder", str).select2({
+			width: function () {
 				return ($('#project_id').width() + 32).toString() + 'px';
-		}});
+			},
+			formatResult: function(item) {
+				return '<span title="'+ $('#project_id option[value=' + item.id + ']').attr('title') +'">' + item.text + '</span>';
+			},
+			formatSelection: function(item) {
+				return '<span title="'+ $('#project_id option[value=' + item.id + ']').attr('title') +'">' + item.text + '</span>';
+			}
+		});
 	}
 });
