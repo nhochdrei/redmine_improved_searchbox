@@ -24,4 +24,5 @@ $(function(){
 			}
 		});
 	}
+    $('#quick-search form').append($('<input />').attr('type', 'hidden').attr('name', 'scope').val('subprojects'));
 });
